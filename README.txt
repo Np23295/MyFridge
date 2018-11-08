@@ -6,5 +6,3 @@ It Also Allows User to do CRUD operation from The website
 
 # Git Repo URL:
 https://github.com/Np23295/MyFridge
-
-

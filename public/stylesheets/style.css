@@ -4,9 +4,44 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #bc5100;
 }
 
-.food_link{
-  color: #FFF;
+body{
+  font-family: "brandon-grotesque" ,"HelveticaNeue-Light", "Helvetica Neue Light","Helvetica Neue","Helvetica", "Arial", "Lucida Grande", "sans-serif";
+  font-size: 14px;
+  background-color: #fff;
+  color: #bc5100;
+}
+
+.navbar.navbar-default.navbar-fixed-top{
+  border: none;
+}
+
+.navbar-default .navbar-brand {
+  font-family: "brandon-grotesque" ,"HelveticaNeue-Light", "Helvetica Neue Light","Helvetica Neue","Helvetica", "Arial", "Lucida Grande", "sans-serif";
+  font-size: 18px;
+  font-weight: bolder;
+  font-stretch: expanded;
+
+}
+
+.list-group-item{
+  font-family: "brandon-grotesque" ,"HelveticaNeue-Light", "Helvetica Neue Light","Helvetica Neue","Helvetica", "Arial", "Lucida Grande", "sans-serif";
+  background-color:  #fff;
+  color: #bc5100;
+  border: 1px solid #f9a825;
+  margin-top: 10px;
+}
+
+.btn.btn-danger{
+  width:100%;
+}
+
+.col-md-6.values{
+  margin-top: 15px;
+}
+
+.card-header{
+  margin-top: 0;
 }

@@ -15,7 +15,7 @@ var renderHomepage = function(req, res, responseBody){
       }
     }
     res.render('food-list', {
-      title: 'List Of Food',
+      title: 'Items in my fridge',
       foods: responseBody,
       message: message
     });
@@ -34,10 +34,17 @@ module.exports.homelist = function(req, res){
     request(
       requestOptions,
       function(err, response, body) {
-        var i, data;
+        var data;
         data = body;
         if (response.statusCode === 200 && data.length) {
-          console.log(data);
+          for (food_item in data){
+            console.log(food_item);
+            data[food_item].date = formatDate(data[food_item].date);
+            if (data[food_item].expiry){
+              data[food_item].expiry = formatDate(data[food_item].expiry);
+            } 
+          }
+
         }
         renderHomepage(req, res, data);
       }
@@ -70,8 +77,15 @@ module.exports.homelist = function(req, res){
 
   module.exports.create = function(req, res){
     res.render('food-create-edit', {
-      title: 'Create Food',
-      create: true
+      title: 'Add item to fridge',
+      create: true,
+      food: {
+        name: '',
+        expiry: '',
+        date: '',
+        quantity: 1,
+        left_overs: false,
+      }
     });
   }
   
@@ -98,7 +112,7 @@ module.exports.homelist = function(req, res){
             data[0].expiry = formatDate(data[0].expiry);
           }
           res.render('food-create-edit', {
-            title: 'Edit Food',
+            title: 'Modify item in fridge',
             create: false,
             food: data[0]
           });

@@ -8,32 +8,40 @@ block content
   .row
     .col-xs-12.col-sm-12.col-md-12
       .error= message
-      .row.list-group
-        each food in foods
-          .col-md-12.list-group-item
-            .row
-              .col-xs-10
-                h4 
-                  h4
-                    a.food_link(href="create_edit/#{food._id}")= food.name
-                    small &nbsp;
-              .col-xs-2
-                a.btn.btn-sm.btn-danger(href="/food/delete/#{food._id}") Delete
-                
-            .row
-              .col-sm-3
-                h4 Date
-                p.date= food.date
-              if food.expiry
-                .col-sm-3
-                  h4 Expiry Date
-                  p= food.expiry
-              .col-sm-3
-                h4 Quantity
-                p= food.quantity
-              .col-sm-3
-                h4 Left Overs
-                p= food.left_overs
-            
-    .col-xs-12.col-sm-4 
-      p.lead= sidebar
+    
+    each food in foods
+        .col-md-4
+          a.food_link(href="create_edit/#{food._id}")
+            .card
+              .card-body
+                center
+                  h4.card-header
+                    p= food.name
+                  p.card-subtitle
+                    .row
+                      .col-md-6
+                        h4 Date 
+                      .col-md-6.values
+                        p= food.date
+                  if food.expiry
+                    p.card-subtitle
+                      .row
+                        .col-md-6
+                          h4 Expiry 
+                        .col-md-6.values
+                          p= food.expiry
+                  p.card-subtitle
+                    .row
+                      .col-md-6
+                        h4 Left Overs 
+                      .col-md-6.values
+                        p= food.left_overs
+                  p.card-subtitle
+                    .row
+                      .col-md-6
+                        h4 Quantity 
+                      .col-md-6.values
+                        p= food.quantity
+
+              a.btn.btn-danger(href="/food/delete/#{food._id}") Delete
+
